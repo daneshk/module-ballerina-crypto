@@ -22,151 +22,91 @@ The conforming implementation of the specification is released and included in t
 
 1. [Overview](#1-overview)
 2. [Hash](#2-hash)
-    - 2.1. [MD5](#21-md5)
-    - 2.2. [SHA1](#22-sha1)
-    - 2.3. [SHA256](#23-sha256)
-    - 2.4. [SHA384](#24-sha384)
-    - 2.5. [SHA512](#25-sha512)
-    - 2.6. [CRC32B](#26-crc32b)
-    - 2.7. [KECCAK256](#27-keccak256)
-    - 2.1. [MD5](#21-md5)
-    - 2.2. [SHA1](#22-sha1)
-    - 2.3. [SHA256](#23-sha256)
-    - 2.4. [SHA384](#24-sha384)
-    - 2.5. [SHA512](#25-sha512)
-    - 2.6. [CRC32B](#26-crc32b)
-    - 2.7. [KECCAK256](#27-keccak256)
+   - 2.1. [MD5](#21-md5)
+   - 2.2. [SHA1](#22-sha1)
+   - 2.3. [SHA256](#23-sha256)
+   - 2.4. [SHA384](#24-sha384)
+   - 2.5. [SHA512](#25-sha512)
+   - 2.6. [CRC32B](#26-crc32b)
+   - 2.7. [KECCAK256](#27-keccak256)
 3. [HMAC](#3-hmac)
-    - 3.1. [MD5](#31-md5)
-    - 3.2. [SHA1](#32-sha1)
-    - 3.3. [SHA256](#33-sha256)
-    - 3.4. [SHA384](#34-sha384)
-    - 3.5. [SHA512](#35-sha512)
+   - 3.1. [MD5](#31-md5)
+   - 3.2. [SHA1](#32-sha1)
+   - 3.3. [SHA256](#33-sha256)
+   - 3.4. [SHA384](#34-sha384)
+   - 3.5. [SHA512](#35-sha512)
 4. [Decode private/public key](#4-decode-privatepublic-key)
-    - 4.1. [Decode RSA Private key from PKCS12 file](#41-decode-rsa-private-key-from-pkcs12-file)
-    - 4.2. [Decode RSA Private key using Private key and Password](#42-decode-rsa-private-key-using-private-key-and-password)
-    - 4.3. [Decode RSA Private key using Private key content and Password](#43-decode-rsa-private-key-using-private-key-content-and-password)
-    - 4.4. [Decode RSA Public key from PKCS12 file](#44-decode-rsa-public-key-from-pkcs12-file)
-    - 4.5. [Decode RSA Public key from the certificate file](#45-decode-rsa-public-key-from-the-certificate-file)
-    - 4.6. [Decode RSA Public key from the certificate content](#46-decode-rsa-public-key-from-the-certificate-content)
-    - 4.7. [Decode EC Private key from PKCS12 file](#47-decode-ec-private-key-from-pkcs12-file)
-    - 4.8. [Decode EC Private key using Private key and Password](#48-decode-ec-private-key-using-private-key-and-password)
-    - 4.9. [Decode EC Public key from PKCS12 file](#49-decode-ec-public-key-from-pkcs12-file)
-    - 4.10. [Decode EC Public key from the certificate file](#410-decode-ec-public-key-from-the-certificate-file)
-    - 4.11. [Build RSA Public key from modulus and exponent parameters](#411-build-rsa-public-key-from-modulus-and-exponent-parameters)
-    - 4.12. [Decode ML-DSA-65 Private key from PKCS12 file](#412-decode-ml-dsa-65-private-key-from-pkcs12-file)
-    - 4.13. [Decode ML-DSA-65 Private key using Private key and Password](#413-decode-ml-dsa-65-private-key-using-private-key-and-password)
-    - 4.14. [Decode ML-DSA-65 Public key from PKCS12 file](#414-decode-ml-dsa-65-public-key-from-pkcs12-file)
-    - 4.15. [Decode ML-DSA-65 Public key from the certificate file](#415-decode-ml-dsa-65-public-key-from-the-certificate-file)
-    - 4.16. [Decode ML-KEM-768 Private key from PKCS12 file](#416-decode-ml-kem-768-private-key-from-pkcs12-file)
-    - 4.17. [Decode ML-KEM-768 Private key using Private key and Password](#417-decode-ml-kem-768-private-key-using-private-key-and-password)
-    - 4.18. [Decode ML-KEM-768 Public key from PKCS12 file](#418-decode-ml-kem-768-public-key-from-pkcs12-file)
-    - 4.19. [Decode ML-KEM-768 Public key from the certificate file](#419-decode-ml-kem-768-public-key-from-the-certificate-file)
+   - 4.1. [Decode RSA Private key from PKCS12 file](#41-decode-rsa-private-key-from-pkcs12-file)
+   - 4.2. [Decode RSA Private key using Private key and Password](#42-decode-rsa-private-key-using-private-key-and-password)
+   - 4.3. [Decode RSA Private key using Private key content and Password](#43-decode-rsa-private-key-using-private-key-content-and-password)
+   - 4.4. [Decode RSA Public key from PKCS12 file](#44-decode-rsa-public-key-from-pkcs12-file)
+   - 4.5. [Decode RSA Public key from the certificate file](#45-decode-rsa-public-key-from-the-certificate-file)
+   - 4.6. [Decode RSA Public key from the certificate content](#46-decode-rsa-public-key-from-the-certificate-content)
+   - 4.7. [Decode EC Private key from PKCS12 file](#47-decode-ec-private-key-from-pkcs12-file)
+   - 4.8. [Decode EC Private key using Private key and Password](#48-decode-ec-private-key-using-private-key-and-password)
+   - 4.9. [Decode EC Public key from PKCS12 file](#49-decode-ec-public-key-from-pkcs12-file)
+   - 4.10. [Decode EC Public key from the certificate file](#410-decode-ec-public-key-from-the-certificate-file)
+   - 4.11. [Build RSA Public key from modulus and exponent parameters](#411-build-rsa-public-key-from-modulus-and-exponent-parameters)
+   - 4.12. [Decode ML-DSA-65 Private key from PKCS12 file](#412-decode-ml-dsa-65-private-key-from-pkcs12-file)
+   - 4.13. [Decode ML-DSA-65 Private key using Private key and Password](#413-decode-ml-dsa-65-private-key-using-private-key-and-password)
+   - 4.14. [Decode ML-DSA-65 Public key from PKCS12 file](#414-decode-ml-dsa-65-public-key-from-pkcs12-file)
+   - 4.15. [Decode ML-DSA-65 Public key from the certificate file](#415-decode-ml-dsa-65-public-key-from-the-certificate-file)
+   - 4.16. [Decode ML-KEM-768 Private key from PKCS12 file](#416-decode-ml-kem-768-private-key-from-pkcs12-file)
+   - 4.17. [Decode ML-KEM-768 Private key using Private key and Password](#417-decode-ml-kem-768-private-key-using-private-key-and-password)
+   - 4.18. [Decode ML-KEM-768 Public key from PKCS12 file](#418-decode-ml-kem-768-public-key-from-pkcs12-file)
+   - 4.19. [Decode ML-KEM-768 Public key from the certificate file](#419-decode-ml-kem-768-public-key-from-the-certificate-file)
 5. [Encrypt-Decrypt](#5-encrypt-decrypt)
-    - 5.1. [Encryption](#51-encryption)
-        - 5.1.1. [RSA](#511-rsa)
-        - 5.1.2. [AES-CBC](#512-aes-cbc)
-        - 5.1.3. [AES-ECB](#513-aes-ecb)
-        - 5.1.4. [AES-GCM](#514-aes-gcm)
-        - 5.1.5. [PGP](#515-pgp)
-    - 5.2. [Decryption](#52-decryption)
-        - 5.2.1. [RSA-ECB](#521-rsa-ecb)
-        - 5.2.2. [AES-CBC](#522-aes-cbc)
-        - 5.2.3. [AES-ECB](#523-aes-ecb)
-        - 5.2.4. [AES-GCM](#524-aes-gcm)
-        - 5.2.5. [PGP](#525-pgp)
-    - 3.1. [MD5](#31-md5)
-    - 3.2. [SHA1](#32-sha1)
-    - 3.3. [SHA256](#33-sha256)
-    - 3.4. [SHA384](#34-sha384)
-    - 3.5. [SHA512](#35-sha512)
-4. [Decode private/public key](#4-decode-privatepublic-key)
-    - 4.1. [Decode RSA Private key from PKCS12 file](#41-decode-rsa-private-key-from-pkcs12-file)
-    - 4.2. [Decode RSA Private key using Private key and Password](#42-decode-rsa-private-key-using-private-key-and-password)
-    - 4.3. [Decode RSA Private key using Private key content and Password](#43-decode-rsa-private-key-using-private-key-content-and-password)
-    - 4.4. [Decode RSA Public key from PKCS12 file](#44-decode-rsa-public-key-from-pkcs12-file)
-    - 4.5. [Decode RSA Public key from the certificate file](#45-decode-rsa-public-key-from-the-certificate-file)
-    - 4.6. [Decode RSA Public key from the certificate content](#46-decode-rsa-public-key-from-the-certificate-content)
-    - 4.7. [Decode EC Private key from PKCS12 file](#47-decode-ec-private-key-from-pkcs12-file)
-    - 4.8. [Decode EC Private key using Private key and Password](#48-decode-ec-private-key-using-private-key-and-password)
-    - 4.9. [Decode EC Public key from PKCS12 file](#49-decode-ec-public-key-from-pkcs12-file)
-    - 4.10. [Decode EC Public key from the certificate file](#410-decode-ec-public-key-from-the-certificate-file)
-    - 4.11. [Build RSA Public key from modulus and exponent parameters](#411-build-rsa-public-key-from-modulus-and-exponent-parameters)
-    - 4.12. [Decode ML-DSA-65 Private key from PKCS12 file](#412-decode-ml-dsa-65-private-key-from-pkcs12-file)
-    - 4.13. [Decode ML-DSA-65 Private key using Private key and Password](#413-decode-ml-dsa-65-private-key-using-private-key-and-password)
-    - 4.14. [Decode ML-DSA-65 Public key from PKCS12 file](#414-decode-ml-dsa-65-public-key-from-pkcs12-file)
-    - 4.15. [Decode ML-DSA-65 Public key from the certificate file](#415-decode-ml-dsa-65-public-key-from-the-certificate-file)
-    - 4.16. [Decode ML-KEM-768 Private key from PKCS12 file](#416-decode-ml-kem-768-private-key-from-pkcs12-file)
-    - 4.17. [Decode ML-KEM-768 Private key using Private key and Password](#417-decode-ml-kem-768-private-key-using-private-key-and-password)
-    - 4.18. [Decode ML-KEM-768 Public key from PKCS12 file](#418-decode-ml-kem-768-public-key-from-pkcs12-file)
-    - 4.19. [Decode ML-KEM-768 Public key from the certificate file](#419-decode-ml-kem-768-public-key-from-the-certificate-file)
-5. [Encrypt-Decrypt](#5-encrypt-decrypt)
-    - 5.1. [Encryption](#51-encryption)
-        - 5.1.1. [RSA](#511-rsa)
-        - 5.1.2. [AES-CBC](#512-aes-cbc)
-        - 5.1.3. [AES-ECB](#513-aes-ecb)
-        - 5.1.4. [AES-GCM](#514-aes-gcm)
-        - 5.1.5. [PGP](#515-pgp)
-    - 5.2. [Decryption](#52-decryption)
-        - 5.2.1. [RSA-ECB](#521-rsa-ecb)
-        - 5.2.2. [AES-CBC](#522-aes-cbc)
-        - 5.2.3. [AES-ECB](#523-aes-ecb)
-        - 5.2.4. [AES-GCM](#524-aes-gcm)
-        - 5.2.5. [PGP](#525-pgp)
+   - 5.1. [Encryption](#51-encryption)
+     - 5.1.1. [RSA](#511-rsa)
+     - 5.1.2. [AES-CBC](#512-aes-cbc)
+     - 5.1.3. [AES-ECB](#513-aes-ecb)
+     - 5.1.4. [AES-GCM](#514-aes-gcm)
+     - 5.1.5. [PGP](#515-pgp)
+   - 5.2. [Decryption](#52-decryption)
+     - 5.2.1. [RSA-ECB](#521-rsa-ecb)
+     - 5.2.2. [AES-CBC](#522-aes-cbc)
+     - 5.2.3. [AES-ECB](#523-aes-ecb)
+     - 5.2.4. [AES-GCM](#524-aes-gcm)
+     - 5.2.5. [PGP](#525-pgp)
 6. [Sign and Verify](#6-sign-and-verify)
-    * 6.1. [Sign messages](#61-sign-messages)
-      * 6.1.1. [RSA-MD5](#611-rsa-md5)
-      * 6.1.2. [RSA-SHA1](#612-rsa-sha1)
-      * 6.1.3. [RSA-SHA256](#613-rsa-sha256)
-      * 6.1.4. [RSA-SHA384](#614-rsa-sha384)
-      * 6.1.5. [RSA-SHA512](#615-rsa-sha512)
-      * 6.1.6. [RSASSA-PSS-SHA256](#616-rsassa-pss-sha256)
-      * 6.1.7. [SHA384withECDSA](#617-sha384withecdsa)
-      * 6.1.8. [SHA256withECDSA](#618-sha256withecdsa)
-      * 6.1.9. [ML-DSA-65](#619-mldsa65)
-   * 6.2. [Verify signature](#62-verify-signature)
-       * 6.2.1. [RSA-MD5](#621-rsa-md5)
-       * 6.2.2. [RSA-SHA1](#622-rsa-sha1)
-       * 6.2.3. [RSA-SHA256](#623-rsa-sha256)
-       * 6.2.4. [RSA-SHA384](#624-rsa-sha384)
-       * 6.2.5. [RSA-SHA512](#625-rsa-sha512)
-       * 6.2.6. [RSASSA-PSS-SHA256](#626-rsassa-pss-sha256)
-       * 6.2.7. [SHA384withECDSA](#627-sha384withecdsa)
-       * 6.2.8. [SHA256withECDSA](#628-sha256withecdsa)
-       * 6.2.9. [ML-DSA-65](#629-mldsa65)
+   - 6.1. [Sign messages](#61-sign-messages)
+     - 6.1.1. [RSA-MD5](#611-rsa-md5)
+     - 6.1.2. [RSA-SHA1](#612-rsa-sha1)
+     - 6.1.3. [RSA-SHA256](#613-rsa-sha256)
+     - 6.1.4. [RSA-SHA384](#614-rsa-sha384)
+     - 6.1.5. [RSA-SHA512](#615-rsa-sha512)
+     - 6.1.6. [RSASSA-PSS-SHA256](#616-rsassa-pss-sha256)
+     - 6.1.7. [SHA384withECDSA](#617-sha384withecdsa)
+     - 6.1.8. [SHA256withECDSA](#618-sha256withecdsa)
+     - 6.1.9. [ML-DSA-65](#619-mldsa65)
+   - 6.2. [Verify signature](#62-verify-signature)
+     - 6.2.1. [RSA-MD5](#621-rsa-md5)
+     - 6.2.2. [RSA-SHA1](#622-rsa-sha1)
+     - 6.2.3. [RSA-SHA256](#623-rsa-sha256)
+     - 6.2.4. [RSA-SHA384](#624-rsa-sha384)
+     - 6.2.5. [RSA-SHA512](#625-rsa-sha512)
+     - 6.2.6. [RSASSA-PSS-SHA256](#626-rsassa-pss-sha256)
+     - 6.2.7. [SHA384withECDSA](#627-sha384withecdsa)
+     - 6.2.8. [SHA256withECDSA](#628-sha256withecdsa)
+     - 6.2.9. [ML-DSA-65](#629-mldsa65)
 7. [Key Derivation Function (KDF)](#7-key-derivation-function-kdf)
-    - 7.1. [HKDF-SHA256](#71-hkdf-sha256)
-    - 7.1. [HKDF-SHA256](#71-hkdf-sha256)
+   - 7.1. [HKDF-SHA256](#71-hkdf-sha256)
 8. [Key Exchange Mechanism (KEM)](#8-key-exchange-mechanism-kem)
-    - 8.1 [Encapsulation](#81-encapsulation)
-        - 8.1.1 [RSA-KEM](#811-rsa-kem)
-        - 8.1.2 [ML-KEM-768](#812-ml-kem-768)
-        - 8.1.3 [RSA-KEM-ML-KEM-768](#813-rsa-kem-ml-kem-768)
-    - 8.2 [Decapsulation](#81-encapsulation)
-        - 8.2.1 [RSA-KEM](#821-rsa-kem)
-        - 8.2.2 [ML-KEM-768](#822-ml-kem-768)
-        - 8.2.3 [RSA-KEM-ML-KEM-768](#823-rsa-kem-ml-kem-768)
-    - 8.1 [Encapsulation](#81-encapsulation)
-        - 8.1.1 [RSA-KEM](#811-rsa-kem)
-        - 8.1.2 [ML-KEM-768](#812-ml-kem-768)
-        - 8.1.3 [RSA-KEM-ML-KEM-768](#813-rsa-kem-ml-kem-768)
-    - 8.2 [Decapsulation](#81-encapsulation)
-        - 8.2.1 [RSA-KEM](#821-rsa-kem)
-        - 8.2.2 [ML-KEM-768](#822-ml-kem-768)
-        - 8.2.3 [RSA-KEM-ML-KEM-768](#823-rsa-kem-ml-kem-768)
+   - 8.1 [Encapsulation](#81-encapsulation)
+     - 8.1.1 [RSA-KEM](#811-rsa-kem)
+     - 8.1.2 [ML-KEM-768](#812-ml-kem-768)
+     - 8.1.3 [RSA-KEM-ML-KEM-768](#813-rsa-kem-ml-kem-768)
+   - 8.2 [Decapsulation](#81-encapsulation)
+     - 8.2.1 [RSA-KEM](#821-rsa-kem)
+     - 8.2.2 [ML-KEM-768](#822-ml-kem-768)
+     - 8.2.3 [RSA-KEM-ML-KEM-768](#823-rsa-kem-ml-kem-768)
 9. [Hybrid Public Key Encryption (HPKE)](#9-hybrid-public-key-encryption-hpke)
-    - 9.1 [Encrypt](#91-encrypt)
-        - 9.1.1 [ML-KEM-768-HPKE](#911-ml-kem-768-hpke)
-        - 9.1.2 [RSA-KEM-ML-KEM-768-HPKE](#912-rsa-kem-ml-kem-768-hpke)
-    - 9.2 [Decrypt](#92-decrypt)
-        - 9.2.1 [ML-KEM-768-HPKE](#921-ml-kem-768-hpke)
-        - 9.2.2 [RSA-KEM-ML-KEM-768-HPKE](#922-rsa-kem-ml-kem-768-hpke)
-    - 9.1 [Encrypt](#91-encrypt)
-        - 9.1.1 [ML-KEM-768-HPKE](#911-ml-kem-768-hpke)
-        - 9.1.2 [RSA-KEM-ML-KEM-768-HPKE](#912-rsa-kem-ml-kem-768-hpke)
-    - 9.2 [Decrypt](#92-decrypt)
-        - 9.2.1 [ML-KEM-768-HPKE](#921-ml-kem-768-hpke)
-        - 9.2.2 [RSA-KEM-ML-KEM-768-HPKE](#922-rsa-kem-ml-kem-768-hpke)
+   - 9.1 [Encrypt](#91-encrypt)
+     - 9.1.1 [ML-KEM-768-HPKE](#911-ml-kem-768-hpke)
+     - 9.1.2 [RSA-KEM-ML-KEM-768-HPKE](#912-rsa-kem-ml-kem-768-hpke)
+   - 9.2 [Decrypt](#92-decrypt)
+     - 9.2.1 [ML-KEM-768-HPKE](#921-ml-kem-768-hpke)
+     - 9.2.2 [RSA-KEM-ML-KEM-768-HPKE](#922-rsa-kem-ml-kem-768-hpke)
 10. [Password hashing](#10-password-hashing)
     - 10.1 [BCrypt](#101-bcrypt)
     - 10.2 [Argon2](#102-argon2)
@@ -664,7 +604,7 @@ byte[] cipherText = check crypto:encryptPgp(data, publicKeyPath);
 The following encryption options can be configured in the PGP encryption.
 
 | Option                | Description                                                       | Default Value |
-|-----------------------|-------------------------------------------------------------------|---------------|
+| --------------------- | ----------------------------------------------------------------- | ------------- |
 | compressionAlgorithm  | Specifies the compression algorithm used for PGP encryption       | ZIP           |
 | symmetricKeyAlgorithm | Specifies the symmetric key algorithm used for encryption         | AES_256       |
 | armor                 | Indicates whether ASCII armor is enabled for the encrypted output | true          |
@@ -1383,7 +1323,7 @@ boolean isValid = check crypto:verifyBcrypt(password, hashedPassword1);
 Implements the Argon2id variant of the Argon2 password hashing algorithm, optimized for both high memory usage and GPU resistance.
 
 ```ballerina
-public isolated function hashArgon2(string password, int iterations = 3, 
+public isolated function hashArgon2(string password, int iterations = 3,
     int memory = 65536, int parallelism = 4) returns string|Error
 ```
 
@@ -1467,353 +1407,7 @@ boolean isValid = check crypto:verifyPbkdf2(password, hashedPassword);
 The following static code rules are applied to the Crypto module.
 
 | Id                 | Kind          | Description                                                                                                       |
-|--------------------|---------------|-------------------------------------------------------------------------------------------------------------------|
-| ballerina/crypto:1 | VULNERABILITY | [Avoid using insecure cipher modes or padding schemes](#111-avoid-using-insecure-cipher-modes-or-padding-schemes) |
-| ballerina/crypto:2 | VULNERABILITY | [Avoid using fast hashing algorithms](#112-avoid-using-fast-hashing-algorithms)                                   |
-| ballerina/crypto:3 | VULNERABILITY | [Avoid reusing counter mode initialization vectors](#113-avoid-reusing-counter-mode-initialization-vectors)       |
-
-### 11.1 Avoid using insecure cipher modes or padding schemes
-
-Using weak or outdated encryption modes and padding schemes can compromise the security of encrypted data, even when strong algorithms are used.
-
-## 11.1.1. Why this is an issue?
-
-Encryption algorithms are essential for protecting sensitive information and ensuring secure communications. When implementing encryption, it's critical to select not only strong algorithms but also secure modes of operation and padding schemes. Using weak or outdated encryption modes can compromise the security of otherwise strong algorithms.
-
-The security risks of using weak encryption modes include:
-
-- Data confidentiality breaches where encrypted content becomes readable
-- Modification of encrypted data without detection
-- Pattern recognition in encrypted data that reveals information about the plaintext
-- Replay attacks where valid encrypted data is reused maliciously
-- Known-plaintext attacks that can reveal encryption keys
-
-## 11.1.2. What is the potential impact?
-
-Common vulnerable patterns include:
-
-- Using ECB (Electronic Codebook) mode which doesn't hide data patterns
-- Implementing CBC (Cipher Block Chaining) without integrity checks
-- Using RSA encryption without proper padding schemes
-- Relying on outdated padding methods like PKCS1v1.5
-- Using stream ciphers with insufficient initialization vectors
-
-## 11.1.3. How can I fix this?
-
-Choose secure encryption modes and padding schemes that provide both confidentiality and integrity protection.
-
-### 11.1.3.1 AES Encryption Example
-
-**Non-compliant code :**
-
-```ballerina
-byte[] cipherText = check crypto:encryptAesEcb(data, key);
-```
-
-For AES, the weakest mode is ECB (Electronic Codebook). Repeated blocks of data are encrypted to the same value, making them easy to identify and reducing the difficulty of recovering the original cleartext.
-
-```ballerina
-byte[] cipherText = check crypto:encryptAesCbc(data, key, initialVector);
-```
-
-Unauthenticated modes such as CBC (Cipher Block Chaining) may be used but are prone to attacks that manipulate the ciphertext (like padding oracle attacks). They must be used with caution and additional integrity checks.
-
-**Compliant code:**
-
-```ballerina
-byte[] cipherText = check crypto:encryptAesGcm(data, key, initialVector);
-```
-
-AES-GCM (Galois/Counter Mode) provides authenticated encryption, ensuring both confidentiality and integrity of the encrypted data.
-
-### 11.1.3.2 RSA Encryption Example
-
-**Non-compliant code :**
-
-```ballerina
-// Default padding is PKCS1
-byte[] cipherText = check crypto:encryptRsaEcb(data, publicKey);
-
-cipherText = check crypto:encryptRsaEcb(data, publicKey, crypto:PKCS1);
-```
-
-For RSA, avoid using PKCS1v1.5 padding as it is vulnerable to various attacks. Instead, use OAEP (Optimal Asymmetric Encryption Padding) which provides better security.
-
-**Compliant code:**
-
-```ballerina
-byte[] cipherText = check crypto:encryptRsaEcb(data, publicKey, crypto:OAEPwithMD5andMGF1);
-```
-
-OAEP such as OAEPwithMD5andMGF1, OAEPWithSHA1AndMGF1, OAEPWithSHA256AndMGF1, OAEPwithSHA384andMGF1, and OAEPwithSHA512andMGF1 should be used for RSA encryption to enhance security.
-
-## Additional Resources
-
-- OWASP - [Top 10 2021 Category A2 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
-- OWASP - [Top 10 2017 Category A3 - Sensitive Data Exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
-- OWASP - [Top 10 2017 Category A6 - Security Misconfiguration](https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration)
-- OWASP - [Mobile AppSec Verification Standard - Cryptography Requirements](https://mas.owasp.org/checklists/MASVS-CRYPTO/)
-- OWASP - [Mobile Top 10 2016 Category M5 - Insufficient Cryptography](https://owasp.org/www-project-mobile-top-10/2016-risks/m5-insufficient-cryptography)
-- OWASP - [Mobile Top 10 2024 Category M10 - Insufficient Cryptography](https://owasp.org/www-project-mobile-top-10/2023-risks/m10-insufficient-cryptography)
-- CWE - [CWE-327 - Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327)
-- CWE - [CWE-780 - Use of RSA Algorithm without OAEP](https://cwe.mitre.org/data/definitions/780)
-- [CERT, MSC61-J.](https://wiki.sei.cmu.edu/confluence/x/hDdGBQ) - Do not use insecure or weak cryptographic algorithms
-
-### 11.2 Avoid using fast hashing algorithms
-
-Storing passwords in plaintext or using fast hashing algorithms creates significant security vulnerabilities. If an attacker gains access to your database, plaintext passwords are immediately compromised. Similarly, passwords hashed with fast algorithms (like MD5, SHA-1, or SHA-256 without sufficient iterations) can be rapidly cracked using modern hardware.
-
-## 11.2.1. Why this is an issue?
-
-When using PBKDF2 (Password-Based Key Derivation Function 2), the iteration count is critical for security. Higher iteration counts increase the computational effort required to hash passwords, making brute-force attacks more difficult and time-consuming.
-
-Following are the OWASP recommended parameters:
-
-For BCrypt:
-
-- Use a work factor of 10 or more
-- Only use BCrypt for password storage in legacy systems where Argon2 and scrypt are not available
-- Be aware of BCrypt's 72-byte password length limit
-
-For Argon2:
-
-- Use the Argon2id variant (which Ballerina implements)
-- Minimum configuration of 19 MiB (19,456 KB) of memory
-- An iteration count of at least 2
-- At least 1 degree of parallelism (this is enforced by Ballerina)
-
-For PBKDF2:
-
-- PBKDF2-HMAC-SHA1: 1,300,000 iterations
-- PBKDF2-HMAC-SHA256: 600,000 iterations (recommended by NIST)
-- PBKDF2-HMAC-SHA512: 210,000 iterations
-
-If performance constraints make these recommendations impractical, the iteration count should never be lower than 100,000.
-
-## 11.2.2. What is the potential impact?
-
-The security risks of using fast hashing algorithms include:
-
-- Password databases become vulnerable to brute-force attacks
-- Dictionary attacks can quickly test common passwords
-- Rainbow table attacks can reverse hash values
-- GPU-accelerated cracking tools can process billions of hashes per second
-- Credential stuffing attacks using compromised password lists
-
-## 11.2.3. How can I fix this?
-
-Use secure password hashing algorithms with appropriate parameters that provide sufficient computational cost to resist brute-force attacks.
-
-### 11.2.3.1 BCrypt Hashing Example
-
-**Non-compliant code:**
-
-```ballerina
-public function main() returns error? {
-    string password = "mySecurePassword123";
-    // Using insufficient work factor
-    string hashedPassword = check crypto:hashBcrypt(password, 4);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-Using BCrypt with a work factor below 10 is insufficient and vulnerable to brute-force attacks.
-
-**Compliant code:**
-
-```ballerina
-public function hashPassword() returns error? {
-    string password = "mySecurePassword123";
-    // Using sufficient work factor (14 or higher for better security)
-    string hashedPassword = check crypto:hashBcrypt(password, 14);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-### 11.2.3.2 Argon2 Hashing Example
-
-**Non-compliant code:**
-
-```ballerina
-public function main() returns error? {
-    string password = "mySecurePassword123";
-    // Using insufficient memory configuration
-    string hashedPassword = check crypto:hashArgon2(password, memory = 4096);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-Using Argon2 with insufficient memory (less than 19,456 KB) makes it vulnerable to attacks.
-
-**Compliant code:**
-
-```ballerina
-public function hashPassword() returns error? {
-    string password = "mySecurePassword123";
-    // Using recommended parameters: sufficient memory, iterations, and parallelism
-    string hashedPassword = check crypto:hashArgon2(password, iterations = 3, memory = 65536, parallelism = 4);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-### 11.2.3.3 PBKDF2 Hashing Example
-
-**Non-compliant code:**
-
-```ballerina
-public function main() returns error? {
-    string password = "mySecurePassword123";
-    // Using default settings with insufficient iterations
-    string hashedPassword = check crypto:hashPbkdf2(password);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-Using PBKDF2 with insufficient iterations (default 10,000) is vulnerable to brute-force attacks.
-
-**Compliant code:**
-
-```ballerina
-public function hashPassword() returns error? {
-    string password = "mySecurePassword123";
-    // Using sufficient iterations as recommended by NIST
-    string hashedPassword = check crypto:hashPbkdf2(password, iterations = 600000, algorithm = crypto:SHA256);
-    io:println("Hashed Password: ", hashedPassword);
-}
-```
-
-## 11.2.4 Additional Resources
-
-- OWASP - [Top 10 2021 Category A2 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
-- OWASP - [Top 10 2021 Category A4 - Insecure Design](https://owasp.org/Top10/A04_2021-Insecure_Design/)
-- OWASP - [Top 10 2017 Category A3 - Sensitive Data Exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
-- OWASP - [Mobile Top 10 2024 Category M10 - Insufficient Cryptography](https://owasp.org/www-project-mobile-top-10/2023-risks/m10-insufficient-cryptography)
-- CWE - [CWE-256 - Plaintext Storage of a Password](https://cwe.mitre.org/data/definitions/256)
-- CWE - [CWE-916 - Use of Password Hash With Insufficient Computational Effort](https://cwe.mitre.org/data/definitions/916)
-- STIG Viewer - [Application Security and Development: V-222542](https://stigviewer.com/stigs/application_security_and_development/2024-12-06/finding/V-222542) - The application must only store cryptographic representations of passwords.
-
-### 11.3 Avoid reusing counter mode initialization vectors
-
-When using encryption algorithms in counter mode (such as AES-GCM, AES-CCM, or AES-CTR), initialization vectors (IVs) or nonces should never be reused with the same encryption key. Reusing IVs with the same key can completely compromise the security of the encryption.
-
-## 11.3.1. Why this is an issue?
-
-Counter mode encryption relies on unique initialization vectors to ensure security. When the same IV is used with the same encryption key for different plaintexts, it creates serious vulnerabilities that can lead to:
-
-- Exposure of encrypted data
-- Ability for attackers to forge authenticated messages
-- Recovery of the authentication key in some cases
-- Disclosure of plaintext by XORing two ciphertexts created with the same IV and key
-
-In modes like GCM (Galois Counter Mode), the initialization vector must be unique for each encryption operation. When an IV is reused, an attacker who observes multiple encrypted messages can perform cryptanalysis to recover the plaintext or even the encryption key.
-
-The security risks of reusing IVs in counter mode include:
-
-- Complete compromise of confidentiality
-- Potential loss of message authentication
-- Violation of the security guarantees provided by the encryption algorithm
-- Exposure of sensitive data even when using strong encryption algorithms
-
-## 11.3.2. What is the potential impact?
-
-Reusing initialization vectors in counter mode encryption creates critical security vulnerabilities:
-
-- **Confidentiality breach**: Attackers can XOR two ciphertexts encrypted with the same IV and key to reveal patterns in the plaintext
-- **Authentication forgery**: In authenticated encryption modes like GCM, IV reuse can allow attackers to create valid forged messages
-- **Key recovery**: In some scenarios, repeated IV usage can lead to recovery of the encryption key itself
-- **Complete system compromise**: Once the encryption is broken, all data encrypted with that key becomes vulnerable
-
-## 11.3.3. How can I fix this?
-
-Generate cryptographically secure random initialization vectors for each encryption operation and ensure they are never reused with the same key.
-
-### 11.3.3.1 AES-GCM Encryption Example
-
-**Non-compliant code:**
-
-```ballerina
-public function encryptData(string data) returns byte[]|error {
-    byte[16] initialVector = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-    byte[16] key = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-    byte[] dataBytes = data.toBytes();
-    return crypto:encryptAesGcm(dataBytes, key, initialVector);
-}
-```
-
-In this non-compliant example, the initialization vector is hardcoded, meaning every encryption operation uses the same IV. This completely undermines the security of AES-GCM encryption, regardless of key strength.
-
-**Compliant code:**
-
-```ballerina
-import ballerina/crypto;
-import ballerina/random;
-
-public function encryptData(string data) returns [byte[], byte[16]]|error {
-    byte[16] initialVector = [];
-    foreach int i in 0...15 {
-        initialVector[i] = <byte>(check random:createIntInRange(0, 255));
-    }
-    byte[16] key = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-    byte[] dataBytes = data.toBytes();
-    byte[] encryptedData = check crypto:encryptAesGcm(dataBytes, key, initialVector);
-    return [encryptedData, initialVector];
-}
-```
-
-This compliant approach generates a cryptographically secure random initialization vector for each encryption operation and returns it along with the encrypted data. The IV must be stored alongside the encrypted data (but doesn't need to be kept secret) to allow for decryption later.
-
-### 11.3.3.2 AES-CBC Encryption Example
-
-**Non-compliant code:**
-
-```ballerina
-public function encryptMessage(string message) returns byte[]|error {
-    // Static nonce - this is vulnerable!
-    byte[12] nonce = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
-    byte[16] key = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-    byte[] messageBytes = message.toBytes();
-    return crypto:encryptAesCbc(messageBytes, key, nonce);
-}
-```
-
-**Compliant code:**
-
-```ballerina
-import ballerina/crypto;
-import ballerina/random;
-
-public function encryptMessage(string message) returns [byte[], byte[12]]|error {
-    // Generate unique nonce for each encryption
-    byte[12] nonce = [];
-    foreach int i in 0...11 {
-        nonce[i] = <byte>(check random:createIntInRange(0, 255));
-    }
-    byte[16] key = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-    byte[] messageBytes = message.toBytes();
-    byte[] encryptedData = check crypto:encryptAesCbc(messageBytes, key, nonce);
-    return [encryptedData, nonce];
-}
-```
-
-## 11.3.4 Additional Resources
-
-- OWASP - [Top 10 2021 Category A2 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
-- OWASP - [Top 10 2017 Category A3 - Sensitive Data Exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure)
-- OWASP - [Mobile AppSec Verification Standard - Cryptography Requirements](https://mas.owasp.org/checklists/MASVS-CRYPTO/)
-- OWASP - [Mobile Top 10 2016 Category M5 - Insufficient Cryptography](https://owasp.org/www-project-mobile-top-10/2016-risks/m5-insufficient-cryptography)
-- OWASP - [Mobile Top 10 2024 Category M10 - Insufficient Cryptography](https://owasp.org/www-project-mobile-top-10/2023-risks/m10-insufficient-cryptography)
-- CWE - [CWE-323 - Reusing a Nonce, Key Pair in Encryption](https://cwe.mitre.org/data/definitions/323)
-- [NIST, SP-800-38A](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf) - Recommendation for Block Cipher Modes of Operation
-- [NIST, SP-800-38C](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38c.pdf) - Recommendation for Block Cipher Modes of Operation: The CCM Mode for Authentication and Confidentiality
-- [NIST, SP-800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf) - Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC
-
-
-## 11. Static Code Rules
-
-The following static code rules are applied to the Crypto module.
-
-| Id                 | Kind          | Description                                                                                                       |
-|--------------------|---------------|-------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------- |
 | ballerina/crypto:1 | VULNERABILITY | [Avoid using insecure cipher modes or padding schemes](#111-avoid-using-insecure-cipher-modes-or-padding-schemes) |
 | ballerina/crypto:2 | VULNERABILITY | [Avoid using fast hashing algorithms](#112-avoid-using-fast-hashing-algorithms)                                   |
 | ballerina/crypto:3 | VULNERABILITY | [Avoid reusing counter mode initialization vectors](#113-avoid-reusing-counter-mode-initialization-vectors)       |
