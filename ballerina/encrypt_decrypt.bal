@@ -16,35 +16,35 @@
 
 import ballerina/jballerina.java;
 
-# Represents the padding algorithms supported by AES encryption and decryption.
+# The padding algorithms supported by AES encryption and decryption.
 public type AesPadding NONE|PKCS5;
 
-# Represents the padding algorithms supported with RSA encryption and decryption.
+# The padding algorithms supported with RSA encryption and decryption.
 public type RsaPadding PKCS1|OAEPwithMD5andMGF1|OAEPWithSHA1AndMGF1|OAEPWithSHA256AndMGF1|OAEPwithSHA384andMGF1|
                        OAEPwithSHA512andMGF1;
 
-# Represents no padding for encryption or decryption.
+# No padding for encryption or decryption.
 public const NONE = "NONE";
 
-# Represents the PKCS1 padding mode for RSA encryption and decryption.
+# The PKCS1 padding mode for RSA encryption and decryption.
 public const PKCS1 = "PKCS1";
 
-# Represents the PKCS5 padding mode for AES encryption and decryption.
+# The PKCS5 padding mode for AES encryption and decryption.
 public const PKCS5 = "PKCS5";
 
-# Represents the OAEP padding mode with MD5 and MGF1 for RSA encryption and decryption.
+# The OAEP padding mode with MD5 and MGF1 for RSA encryption and decryption.
 public const OAEPwithMD5andMGF1 = "OAEPwithMD5andMGF1";
 
-# Represents the OAEP padding mode with SHA-1 and MGF1 for RSA encryption and decryption.
+# The OAEP padding mode with SHA-1 and MGF1 for RSA encryption and decryption.
 public const OAEPWithSHA1AndMGF1 = "OAEPWithSHA1AndMGF1";
 
-# Represents the OAEP padding mode with SHA-256 and MGF1 for RSA encryption and decryption.
+# The OAEP padding mode with SHA-256 and MGF1 for RSA encryption and decryption.
 public const OAEPWithSHA256AndMGF1 = "OAEPWithSHA256AndMGF1";
 
-# Represents the OAEP padding mode with SHA-384 and MGF1 for RSA encryption and decryption.
+# The OAEP padding mode with SHA-384 and MGF1 for RSA encryption and decryption.
 public const OAEPwithSHA384andMGF1 = "OAEPwithSHA384andMGF1";
 
-# Represents the OAEP padding mode with SHA-512 and MGF1 for RSA encryption and decryption.
+# The OAEP padding mode with SHA-512 and MGF1 for RSA encryption and decryption.
 public const OAEPwithSHA512andMGF1 = "OAEPwithSHA512andMGF1";
 
 # Returns the RSA-encrypted value for the given data.
