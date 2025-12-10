@@ -71,7 +71,7 @@ public isolated function encryptMlKem768Hpke(byte[] input, PublicKey publicKey, 
 # + encapsulatedKey - The encapsulated secret, provided as a byte array representing the encrypted key material
 # + privateKey - The MlKem private key used for decryption, provided as a `crypto:PrivateKey` record
 # + symmetricKeySize - The length of the symmetric key in bytes
-# + return - The decrypted data as a byte array, or a `crypto:Error` if an error occurs.
+# + return - The decrypted data as a byte array, or a `crypto:Error` if an error occurs
 public isolated function decryptMlKem768Hpke(byte[] input, byte[] encapsulatedKey, PrivateKey privateKey, AesKeySize symmetricKeySize = 32) returns byte[]|Error {
     byte[] key = check decapsulateMlKem768(encapsulatedKey, privateKey);
     key = check hkdfSha256(key, symmetricKeySize);
@@ -135,7 +135,7 @@ public isolated function encryptRsaKemMlKem768Hpke(byte[] input, PublicKey rsaPu
 # + rsaPrivateKey - The RSA private key used for decryption, provided as a `crypto:PrivateKey` record
 # + mlkemPrivateKey - The MlKem private key used for decryption, provided as a `crypto:PrivateKey` record
 # + symmetricKeySize - The length of the symmetric key in bytes
-# + return - The decrypted data as a byte array, or a `crypto:Error` if an error occurs.
+# + return - The decrypted data as a byte array, or a `crypto:Error` if an error occurs
 public isolated function decryptRsaKemMlKem768Hpke(byte[] input, byte[] encapsulatedKey, PrivateKey rsaPrivateKey, PrivateKey mlkemPrivateKey, AesKeySize symmetricKeySize = 32) returns byte[]|Error {
     byte[] key = check decapsulateRsaKemMlKem768(encapsulatedKey, rsaPrivateKey, mlkemPrivateKey);
     key = check hkdfSha256(key, symmetricKeySize);

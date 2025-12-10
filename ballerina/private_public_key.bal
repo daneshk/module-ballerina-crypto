@@ -49,14 +49,14 @@ public type TrustStore record {|
 
 # Represents the private key used in cryptographic operations.
 #
-# + algorithm - Specifies the cryptographic algorithm used for the private key. Must be one of the supported algorithms(RSA, MLKEM768, MLDSA65)
+# + algorithm - Specifies the cryptographic algorithm used for the private key. Must be one of the supported algorithms (RSA, MLKEM768, MLDSA65)
 public type PrivateKey record {|
     KeyAlgorithm algorithm;
 |};
 
 # Represents the public key used in cryptographic operations.
 #
-# + algorithm - Specifies the cryptographic algorithm used for the public key. Must be one of the supported algorithms(RSA, MLKEM768, MLDSA65)
+# + algorithm - Specifies the cryptographic algorithm used for the public key. Must be one of the supported algorithms (RSA, MLKEM768, MLDSA65)
 # + certificate - Optional X.509 certificate associated with the public key
 public type PublicKey record {|
     KeyAlgorithm algorithm;
